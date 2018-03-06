@@ -66,6 +66,7 @@ class SimpleContainer extends Container implements IContainer {
 				try {
 					$parameters[] = $this->query($resolveName);
 				} catch (\Exception $e) {
+					/** @suppress PhanUndeclaredClassInstanceof */
 					if (class_exists("PHPUnit_Framework_AssertionFailedError", false) &&
 						$e instanceof \PHPUnit_Framework_AssertionFailedError) {
 						// Easier debugging of "Your test case is not allowed to access the database."
